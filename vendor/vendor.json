@@ -1,6 +1,13 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [],
+	"package": [
+		{
+			"checksumSHA1": "YtT4juziEf4drseqT6lbLiwlTIo=",
+			"path": "github.com/koljonen/simpleapiproxy/apiproxy",
+			"revision": "b98f862ab67a20e3abe3666a1390aa737bc91773",
+			"revisionTime": "2019-11-24T02:24:00Z"
+		}
+	],
 	"rootPath": "simpleapiproxy"
 }
