@@ -21,6 +21,6 @@ import (
 )
 
 func main() {
-	apiProxy := apiproxy.Proxy(os.Getenv("URL_ROOT"), os.Getenv("URL_SUFFIX"))
+	apiProxy := apiproxy.Proxy(os.Getenv("URL_ROOT"), os.Getenv("URL_SUFFIX"), os.Getenv("APIKEY"))
 	http.ListenAndServe(":"+os.Getenv("PORT"), apiProxy)
 }
