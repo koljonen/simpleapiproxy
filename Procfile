@@ -1,1 +1,1 @@
-web: use_proxy
+web: simpleapiproxy
