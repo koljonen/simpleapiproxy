@@ -3,10 +3,10 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "YtT4juziEf4drseqT6lbLiwlTIo=",
+			"checksumSHA1": "vD2EtM9fcg65B+36DZf/+6YB3jo=",
 			"path": "github.com/koljonen/simpleapiproxy/apiproxy",
-			"revision": "b98f862ab67a20e3abe3666a1390aa737bc91773",
-			"revisionTime": "2019-11-24T02:24:00Z"
+			"revision": "6116e35c8c94d6cfe70096c52bd9d73036bfc406",
+			"revisionTime": "2019-11-24T03:04:53Z"
 		}
 	],
 	"rootPath": "simpleapiproxy"
