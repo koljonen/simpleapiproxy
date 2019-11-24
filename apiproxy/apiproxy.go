@@ -42,14 +42,6 @@ func queryCombiner(handler http.Handler, addon string) http.Handler {
 }
 
 // Allow cross origin resource sharing
-func addCORS(handler http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Access-Control-Allow-Headers", "X-Requested-With")
-		handler.ServeHTTP(w, r)
-	})
-}
-
-// Allow cross origin resource sharing
 func addHeader(handler http.Handler, apikey string) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		r.Header.Set("apikey", apikey)
@@ -72,7 +64,5 @@ func Proxy(remoteUrl string, queryAddon string, apikey string) http.Handler {
 	// wrap that with our query param combiner
 	combined := queryCombiner(singleHosted, queryAddon)
 	// Set header API key
-	withkey := addHeader(combined, apikey)
-	// and finally allow CORS
-	return addCORS(withkey)
+	return addHeader(combined, apikey)
 }
