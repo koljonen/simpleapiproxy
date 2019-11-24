@@ -44,7 +44,6 @@ func queryCombiner(handler http.Handler, addon string) http.Handler {
 // Allow cross origin resource sharing
 func addCORS(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header()["Access-Control-Allow-Origin"] = []string{"test"}
 		w.Header().Set("Access-Control-Allow-Headers", "X-Requested-With")
 		handler.ServeHTTP(w, r)
 	})
