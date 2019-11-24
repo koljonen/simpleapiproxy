@@ -54,7 +54,7 @@ func addCORS(handler http.Handler) http.Handler {
 func addHeader(handler http.Handler, apikey string) http.Handler {
 	log.Printf("Adding header apikey %s...\n", apikey)
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("apikey", apikey)
+		r.Header().Set("apikey", apikey)
 		handler.ServeHTTP(w, r)
 	})
 }
