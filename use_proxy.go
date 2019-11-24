@@ -15,7 +15,7 @@
 package main
 
 import (
-	"github.com/semanticart/simpleapiproxy/apiproxy"
+	"github.com/koljonen/simpleapiproxy/apiproxy"
 	"net/http"
 	"os"
 )

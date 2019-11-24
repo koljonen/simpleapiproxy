@@ -50,8 +50,16 @@ func addCORS(handler http.Handler) http.Handler {
 	})
 }
 
+// Allow cross origin resource sharing
+func addHeader(handler http.Handler, string apikey) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("apikey", apikey)
+		handler.ServeHTTP(w, r)
+	})
+}
+
 // Combine the two functions above with http.NewSingleHostReverseProxy
-func Proxy(remoteUrl string, queryAddon string) http.Handler {
+func Proxy(remoteUrl string, queryAddon string, apikey string) http.Handler {
 	// pull the root url we're proxying to from an environment variable.
 	serverUrl, err := url.Parse(remoteUrl)
 	if err != nil {
@@ -64,6 +72,8 @@ func Proxy(remoteUrl string, queryAddon string) http.Handler {
 	singleHosted := sameHost(reverseProxy)
 	// wrap that with our query param combiner
 	combined := queryCombiner(singleHosted, queryAddon)
+	// Set header API key
+	withkey = addHeader(combined, apikey)
 	// and finally allow CORS
-	return addCORS(combined)
+	return addCORS(withkey)
 }
