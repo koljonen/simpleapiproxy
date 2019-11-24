@@ -51,7 +51,7 @@ func addCORS(handler http.Handler) http.Handler {
 }
 
 // Allow cross origin resource sharing
-func addHeader(handler http.Handler, string apikey) http.Handler {
+func addHeader(handler http.Handler, apikey string) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("apikey", apikey)
 		handler.ServeHTTP(w, r)
