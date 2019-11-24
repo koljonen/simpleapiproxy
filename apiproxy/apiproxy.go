@@ -73,7 +73,7 @@ func Proxy(remoteUrl string, queryAddon string, apikey string) http.Handler {
 	// wrap that with our query param combiner
 	combined := queryCombiner(singleHosted, queryAddon)
 	// Set header API key
-	withkey = addHeader(combined, apikey)
+	withkey := addHeader(combined, apikey)
 	// and finally allow CORS
 	return addCORS(withkey)
 }
